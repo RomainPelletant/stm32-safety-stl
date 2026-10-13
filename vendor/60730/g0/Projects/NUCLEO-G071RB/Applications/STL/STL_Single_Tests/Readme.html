@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>STL_Single_tests Application Description</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="../../../../_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12">
+<h2 id="stl_single_tests-application-description"><b>STL_Single_tests Application Description</b></h2>
+<p>This application demonstrates possible execution of all tests included at the STL at both startup and run time condition.</p>
+<p>The Test Modules executed in this application are launched consecutively by the application with the use of single tests APIs.</p>
+<p>The Flash subsets consist of 1 subset of several sections tested by one shot overall test at startup and split into series of single atomic steps at each partial run time test.</p>
+<p>The RAM subsets consist of 1 subset of several sections tested by one shot at startup overall test and split into series of single atomic steps at each partial run time step test. To cover discontinuous adressing RAM areas, at least one subset per discontinuous RAM area must be defined.</p>
+<p>Please pay attention to the following STL specific items when porting this application on a different target:</p>
+<ul>
+<li>check ROM memory configuration in stl_user_param_template.c according to the device</li>
+<li>check “backup_buffer_section” section is defined in the scatter file</li>
+<li>check Flash &amp; RAM configurations in the application main.c</li>
+</ul>
+<p>For more details, refer to Safety documents.</p>
+<h3 id="keywords"><b>Keywords</b></h3>
+<p>System, STL</p>
+<h3 id="directory-contents"><b>Directory contents</b></h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STL_Single_Tests/Src/system_stm32g0xx.c</td>
+<td style="text-align: left;">STM32G0xx system source file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STL_Single_Tests/Src/main.c</td>
+<td style="text-align: left;">main application file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STL_Single_Tests/Src/stm32g0xx_hal_msp.c</td>
+<td style="text-align: left;">HAL MSP module</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STL_Single_Tests/Src/stm32g0xx_it.c</td>
+<td style="text-align: left;">STM32 interrupt handlers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STL_Single_Tests/Inc/main.h</td>
+<td style="text-align: left;">header for main.c</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STL_Single_Tests/Inc/stm32g0xx_hal_conf.h</td>
+<td style="text-align: left;">HAL configuration file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STL_Single_Tests/Inc/stm32g0xx_it.h</td>
+<td style="text-align: left;">header for stm32g0xx_it.c</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hardware-and-software-environment"><b>Hardware and Software environment</b></h3>
+<ul>
+<li>This example runs on STM32G0xx devices.</li>
+<li>This example has been tested with STM32G071RB-Nucleo Rev C board and can be easily tailored to any other supported devices and development boards.</li>
+</ul>
+<h3 id="how-to-use-it"><b>How to use it ?</b></h3>
+<p>In order to make the program work, you must do the following :</p>
+<p><b>Install ST CRC tool</b></p>
+<p>ST provides a CRC tool used for Flash testing, but user can use his own CRC tools. ST CRC tool install procedure:</p>
+<ul>
+<li>Select on ST web-site STM32CubeProgrammer</li>
+<li>Install the package.</li>
+</ul>
+<p>The easiest is to add the tool path inside host environment variable (need computer administration right). If not, you need to update the post build project command line with the tool path:</p>
+<p>With IAR IDE:</p>
+<pre><code>In Project, Option, Build Actions:
+The current post-build command line is:
+  STM32_Programmer_CLI.exe -sl &quot;path/of/Project.out&quot; FlashStart@ FlashEnd@ FlashSectionSize</code></pre>
+<p>With MDK-ARM KEIL IDE:</p>
+<pre><code>In Project, Option, User:
+The current After Build/Rebuild command line is:
+  STM32_Programmer_CLI.exe  -sl  &quot;Path\Project.axf&quot; FlashStart@ FlashEnd@ FlashSectionSize</code></pre>
+<p>With ST32CubeIDE:</p>
+<pre><code>In Project, Settings, Build steps:
+The current Pre-Build steps command line is:
+  rm -f ${BuildArtifactFileBaseName}.elf
+The current Post-Build steps command line is:
+  arm-none-eabi-objcopy -O binary &quot;${BuildArtifactFileBaseName}.elf&quot; &quot;${BuildArtifactFileBaseName}.bin&quot; &amp;&amp; arm-none-eabi-size &quot;${BuildArtifactFileName}&quot; &amp;&amp; echo  &quot;\&quot;STM32_Programmer_CLI.exe\&quot; -sl \&quot;${CWD}\\${BuildArtifactFileName}\&quot; FlashStart@ FlashEnd@ FlashSectionSize &quot; &gt; call_prg.bat &amp;&amp; &quot;${CWD}\call_prg.bat&quot;</code></pre>
+<p>=&gt; adapt the STM32_Programmer_CLI.exe path</p>
+<p><b>Test execution</b></p>
+<ol type="1">
+<li><p>Compile the project It compiles and execute the post-build command</p></li>
+<li><p>load the image into the target</p></li>
+<li>Execute the code</li>
+</ol>
+<ul>
+<li>LED4 toggles regularly : all the tests are executed correctly (each toggle signalizes flash test completion)</li>
+<li>LED4 single short flash appears once per 2 seconds: one of the tests FAILED (FailSafe_Handler keeps fail code)</li>
+<li>LED4 single short flash appears once per 4 seconds: one of the tests FAILED by defense programming</li>
+</ul>
+<p><b>information</b></p>
+<p>A warning related to the overwriting of the elf file may be displayed after link. This warning is normal and is highlighting that, after the link, the Elf file is modified by the post-build script.</p>
+</div>
+</div>
+</body>
+</html>

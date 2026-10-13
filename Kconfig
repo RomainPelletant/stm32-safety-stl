@@ -1,0 +1,93 @@
+# Copyright (c) 2026 Sixtaupi
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig SAFETY_STM32_STL
+	bool "ST X-CUBE-STL safety provider"
+	depends on SAFETY
+	depends on SOC_FAMILY_STM32
+	help
+	  Enables integration of an ST X-CUBE-STL package through the generic
+	  safety framework. Availability and assumptions are family-specific.
+
+if SAFETY_STM32_STL
+
+config SAFETY_STM32_STL_G0
+	bool
+	default y if SOC_SERIES_STM32G0X
+	help
+	  Selects the bundled X-CUBE-STL-G0 package and adapter. The bundled
+	  STL_Lib.a is version 2.0.0 and was built by ST with EWARM 9.20.3.
+	  The integrator must verify toolchain compatibility and every applicable
+	  assumption from the ST documentation.
+
+config SAFETY_STM32_STL_C0_PACKAGE_AVAILABLE
+	bool
+	help
+	  Internal availability gate. Keep disabled until the exact C0 package,
+	  adapter, supported-device list, and assumptions have been integrated.
+
+config SAFETY_STM32_STL_C0
+	bool
+	default y if SOC_SERIES_STM32C0X && SAFETY_STM32_STL_C0_PACKAGE_AVAILABLE
+	depends on SOC_SERIES_STM32C0X
+	depends on SAFETY_STM32_STL_C0_PACKAGE_AVAILABLE
+
+comment "X-CUBE-STL-C0 package and adapter are not installed"
+	depends on SOC_SERIES_STM32C0X
+	depends on !SAFETY_STM32_STL_C0_PACKAGE_AVAILABLE
+
+config SAFETY_STM32_STL_U5_PACKAGE_AVAILABLE
+	bool
+	help
+	  Internal availability gate. Keep disabled until the exact U5 package,
+	  adapter, supported-device list, and assumptions have been integrated.
+
+config SAFETY_STM32_STL_U5
+	bool
+	default y if SOC_SERIES_STM32U5X && SAFETY_STM32_STL_U5_PACKAGE_AVAILABLE
+	depends on SOC_SERIES_STM32U5X
+	depends on SAFETY_STM32_STL_U5_PACKAGE_AVAILABLE
+
+comment "X-CUBE-STL-U5 package and adapter are not installed"
+	depends on SOC_SERIES_STM32U5X
+	depends on !SAFETY_STM32_STL_U5_PACKAGE_AVAILABLE
+
+if SAFETY_STM32_STL_G0 && SAFETY_BOOT_TESTS
+
+menu "ST X-CUBE-STL-G0 boot diagnostics"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM1
+	bool "CPU TM1"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM1L
+	bool "CPU TM1L"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM2
+	bool "CPU TM2"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM3
+	bool "CPU TM3"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM4
+	bool "CPU TM4"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM5
+	bool "CPU TM5"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM6
+	bool "CPU TM6"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM7
+	bool "CPU TM7"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM7L
+	bool "CPU TM7L"
+
+config SAFETY_BOOT_STM32_STL_CPU_TM8
+	bool "CPU TM8"
+
+endmenu
+
+endif # SAFETY_STM32_STL_G0 && SAFETY_BOOT_TESTS
+
+endif # SAFETY_STM32_STL

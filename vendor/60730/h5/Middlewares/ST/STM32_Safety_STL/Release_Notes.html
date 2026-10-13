@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for STM32H5 Safety Self Test Library (STL)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<center>
+<h1 id="release-notes-for-safety-self-test-library-stl"><small>Release Notes for</small> <mark>Safety Self Test Library (STL)</mark></h1>
+<p>Copyright © 2023 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="./_htmresc/st_logo_2020.png" alt="ST logo" /></a>
+</center>
+<h1 id="purpose">Purpose</h1>
+<p>The STL is the main component of the X-CUBE-CLASSB-H5 expansion package for STM32Cube.</p>
+<p>STL is an application-independent software test library released by ST to implement a relevant subset of safety mechanisms applicable to generic parts of Arm® Cortex® M33 CPU included in the STM32H5 Series microcontrollers required by the safety standard targeting inhouse appliances. The STL is HAL/LL independent and compilation tool chain-agnostic, so it can be compiled by any standard C-compiler. STL is an autonomous software, which executes on application demand selected tests to detect hardware issues, and reports the outcomes to the application.</p>
+<p>STL is delivered partly in object code (for the library itself) and partly in source code for the user interfaces definition and user parameters settings.</p>
+<p><strong>Architecture Overview</strong></p>
+<p>The STL tests the Arm® Cortex® M33 CPU core, the Flash memory and the RAM.</p>
+<p>As shown in Figure 1. STL architecture, a system architecture with an end-user application integrating the STL is composed of:</p>
+<ul>
+<li><p>User application (in light blue)</p></li>
+<li><p>User parameters (in light blue)</p></li>
+<li><p>STL scheduler (in light yellow): directly accessible by the User application via User APIs (not going through HAL/LL)</p></li>
+<li><p>STL internal test modules (in light yellow): called by the STL scheduler (not seen from the User application).</p></li>
+</ul>
+<p>The figure below shows the STL architecture:</p>
+<center>
+<img src="_htmresc/STL_Architecture_CM33.PNG" alt="STL Architecture" /><br />
+
+</center>
+<p>The STL reference document is:</p>
+<ul>
+<li>UM3267 : STM32H5 Series UL/CSA/IEC 60730-1/60335-1 Class B self-test library user guide</li>
+</ul>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section0" checked aria-hidden="true"> <label for="collapse-section1" aria-hidden="true"><strong>V4.0.0 / 13-12-2023</strong></label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<p><strong>First release of a new STL delivered at object format</strong></p>
+<h2 id="integrity">Integrity</h2>
+<ul>
+<li><p>SHA256 function (specified in FIPS-180 publications) is used to check STL delivery integrity</p></li>
+<li><p>SHA256 expected values:</p></li>
+</ul>
+<p>The STL library file, STL_Lib.a, could have a different version than the other files delivered in source, that have all the same version.</p>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><strong>STL library file version: v4.0.0</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File name</th>
+<th style="text-align: left;">SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Lib/STL_Lib.a</em></td>
+<td style="text-align: left;">08d70bf9b866cb0f7df453a0b068824d1244082a928041ec95a2b9b482c7d6c7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<ul>
+<li>Not applicable as 1st version</li>
+</ul>
+<h2 id="development-toolchains-and-compilers-for-the-library">Development Toolchains and Compilers for the library</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM toolchain V9.30.1 - more information in User Guide</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on <strong>STM32H5xx</strong>, visit: [<a href="http://www.st.com/stm32h5">www.st.com/stm32h5</a>] visit: <a href="https://www.st.com/en/microcontrollers-microprocessors.html">www.st.com/STM32</a></p>
+This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.
+</footer>
+</body>
+</html>

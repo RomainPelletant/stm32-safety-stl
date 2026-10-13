@@ -1,0 +1,58 @@
+/**
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __MAIN_H
+#define __MAIN_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include "stm32h5xx_hal.h"
+
+/* Private includes ----------------------------------------------------------*/
+#include "stm32h5xx_nucleo.h"
+#include "secure_nsc.h"
+#include "stl_user_api.h"
+#include "stm32h5xx_it.h"
+
+/* Exported types ------------------------------------------------------------*/
+
+/* Exported constants --------------------------------------------------------*/
+
+/* Exported macro ------------------------------------------------------------*/
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+int main(void);
+void FailSafe_Handler(uint32_t fail_code);
+void STL_Init(void);
+void STL_RunStep(void);
+void TIM16_IRQHandler(void);
+void STL_RunFullTest(void);
+
+/* Private defines -----------------------------------------------------------*/
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MAIN_H */

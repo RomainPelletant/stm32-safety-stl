@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+  <project>
+    <path>$WS_DIR$\NonSecure\STL_Single_Tests_NS.ewp</path>
+  </project><project>
+    <path>$WS_DIR$\Secure\STL_Single_Tests_S.ewp</path>
+  </project><project>
+    <path>$WS_DIR$\NoTrustZone\STL_Single_Tests_No_TZ.ewp</path>
+  </project>
+  <batchBuild />
+</workspace>

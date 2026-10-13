@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for X-CUBE-CLASSB-H5 Package</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<center>
+<h1 id="release-notes-for-x-cube-classb-h5"><small>Release Notes for</small> <mark>X-CUBE-CLASSB-H5</mark></h1>
+<h1 id="expansion-package-for-stm32cube"><small>Expansion package for STM32Cube</small></h1>
+<p>Copyright © 2023 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="./_htmresc/st_logo_2020.png" alt="ST logo" /></a>
+</center>
+<h1 id="purpose">Purpose</h1>
+<p>The X-CUBE-CLASSB-H5 <strong>Self-Test Library (STL)</strong> is an application-independent software test library released by ST to implement a relevant subset of safety mechanisms required by the safety concepts applicable to microcontrollers of the STM32H5 Series.</p>
+<p>The STL is compilation tool chain-agnostic, so it can be compiled by any standard C-compiler. STL is an autonomous software, which executes on application demand selected tests to detect HW issues, and reports the outcomes to the application. STL is delivered partly in object code (for the library itself) and partly in source code for the user interfaces definition and user parameters settings.</p>
+<p>The X-CUBE-CLASSB-H5 is built on top of STM32Cube software technology.</p>
+<p>The X-CUBE-CLASSB-H5 software comes with example implementations running on NUCLEO-H563ZI.</p>
+<p>X-CUBE-CLASSB-H5 software features:</p>
+<ul>
+<li>STL tests of the CPU Arm® core.</li>
+<li>STL tests of the Flash memory.</li>
+<li>STL tests of the RAM.</li>
+</ul>
+<p>The figure below shows the overall architecture.</p>
+<center>
+<img src="_htmresc/STM32Cube_2020_safety_STL.png" alt="architecture" />
+</center>
+<p>Here is the list of references to user documents:</p>
+<ul>
+<li><a href="https://www.st.com/resource/en/user_manual/dm00906547-.pdf">UM3065</a> : Getting started with STM32CubeH5 for STM32H5 Series</li>
+<li><a href="https://www.st.com/resource/en/user_manual/dm00948527.pdf">UM3132</a> : Description of STM32H5 HAL and low-layer drivers</li>
+</ul>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section0" checked aria-hidden="true"> <label for="collapse-section0" aria-hidden="true"><strong>V4.0.0 / 13-December-2023</strong></label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<p>First release of Self-Test Library for STM32H5 series</p>
+<h2 id="contents">Contents</h2>
+<p><strong>Projects</strong> information</p>
+<p>The X-CUBE-CLASSB-H5 package:</p>
+<ul>
+<li>comes with a set of Applications running on STMicroelectronics board, STM32H563ZI-Nucleo</li>
+<li>offers full scope of Applications ported on 3 toolchains</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Projects</td>
+<td style="text-align: left;">V4.0.0</td>
+<td style="text-align: left;"><a href="Projects\Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="components">Components</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><strong>Drivers</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cortex®-M CMSIS</td>
+<td style="text-align: left;">V5.6.0_cm33</td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/docs/General/html/index.html">release note</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32H5xx CMSIS</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/Device/ST/STM32H5xx/Release_Notes.html">release note</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32H5xx_Nucleo</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: left;"><a href="Drivers/BSP/STM32H5xx_Nucleo/Release_Notes.html">release note</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32H5 HAL/LL APIs</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: left;"><a href="Drivers/STM32H5xx_HAL_Driver/Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Middlewares</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32 safety (source code and library)</td>
+<td style="text-align: left;">V4.0.0.</td>
+<td style="text-align: left;"><a href="Middlewares/ST/STM32_Safety_STL/Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="documents">Documents</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">UM3267</td>
+<td style="text-align: left;">STL user guide</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>None</p>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V9.40.1 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.38 + ST-Link</li>
+<li>STM32CubeIDE V1.13.2 using GCC11.1</li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<ul>
+<li>NUCLEO-H563ZI REV B (MB1404 B-02)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on STM32H5xx, visit: <a href="http://www.st.com/stm32h5">www.st.com/stm32h5</a>; <a href="https://www.st.com/en/microcontrollers-microprocessors.html">www.st.com/STM32</a></p>
+This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.
+</footer>
+</body>
+</html>

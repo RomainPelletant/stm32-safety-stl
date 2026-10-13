@@ -1,0 +1,10 @@
+# Copyright (c) 2026 Sixtaupi
+# SPDX-License-Identifier: Apache-2.0
+
+name: stm32-safety-stl
+
+build:
+  cmake: .
+  kconfig: Kconfig
+  depends:
+    - safety

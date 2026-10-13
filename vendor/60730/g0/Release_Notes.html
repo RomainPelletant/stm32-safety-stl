@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for X-CUBE-CLASSB-G0 Package</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<center>
+<h1 id="release-notes-for-x-cube-classb-g0"><small>Release Notes for</small> <mark>X-CUBE-CLASSB-G0</mark></h1>
+<h1 id="expansion-package-for-stm32cube"><small>Expansion package for STM32Cube</small></h1>
+<p>Copyright © 2022 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="./_htmresc/st_logo_2020.png" alt="ST logo" /></a>
+</center>
+<h1 id="purpose">Purpose</h1>
+<p>The X-CUBE-CLASSB-G0 <strong>Self-Test Library (STL)</strong> is an application-independent software test library released by ST to implement a relevant subset of safety mechanisms applicable to generic parts of the STM32G0 Series microcontrollers required by the safety standard targeting inhouse appliances.</p>
+<p>STL is an autonomous software, which executes on application demand selected tests to detect HW issues and reports the outcomes to the application. STL is delivered partly in object code (for the library itself) and partly in source code for the user interfaces definition and user parameters settings. Therefore, the STL is compilation tool chain-agnostic, so it can be compiled by any standard C-compiler.</p>
+<p>The X-CUBE-CLASSB-G0 is built on top of STM32Cube software technology and follow principles derived from another ST safety library dedicated for industrial appliances (X-CUBE-STL).</p>
+<p>The X-CUBE-CLASSB-G0 software comes with implementation example running on NUCLEO-U575ZI-Q.</p>
+<p>X-CUBE-CLASSB-G0 software features:</p>
+<ul>
+<li>STL tests of the CPU Arm® core.</li>
+<li>STL tests of the Flash memory.</li>
+<li>STL tests of the RAM.</li>
+<li>This implementation example provides template of a user defined module dedicated for testing the CPU clock system</li>
+</ul>
+<p>The figure below shows the overall architecture.</p>
+<center>
+<img src="_htmresc/STM32Cube_safety_STL.png" alt="architecture" />
+</center>
+<p>Here is the list of references to user documents:</p>
+<ul>
+<li>UM2455 STM32G0 series safety manual</li>
+<li>UM3083 STM32G0 Series UL/CSA/IEC 60730-1/60335-1 Class B self-test library user guide</li>
+</ul>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section3" checked aria-hidden="true"> <label for="collapse-section3" aria-hidden="true"><strong>V4.0.0 / 23-December-2022</strong></label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<h3 id="first-release">First release</h3>
+<h2 id="contents">Contents</h2>
+<p><strong>Projects</strong> information</p>
+<p>The X-CUBE-CLASSB-G0 package:</p>
+<ul>
+<li>comes with a set of Applications running on STMicroelectronics board, STM32G071RB-Nucleo</li>
+<li>offers full scope of Applications ported on 3 toolchains</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Projects</td>
+<td style="text-align: left;">V4.0.0</td>
+<td style="text-align: left;"><a href="Projects\Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="components">Components</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><strong>Drivers</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cortex®-M CMSIS</td>
+<td style="text-align: left;">v5.6.0_cm0</td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/docs/index.html">release note</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32G0xx CMSIS</td>
+<td style="text-align: left;">V1.4.2</td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/Device/ST/STM32G0xx/Release_Notes.html">release note</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32G0xx_Nucleo</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: left;"><a href="Drivers/BSP/STM32G0xx_Nucleo/Release_Notes.html">release note</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32G0 HAL/LL APIs</td>
+<td style="text-align: left;">V1.4.4</td>
+<td style="text-align: left;"><a href="Drivers/STM32G0xx_HAL_Driver/Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Middlewares</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Safety Self Test Library (STL)</td>
+<td style="text-align: left;">V4.0.0</td>
+<td style="text-align: left;"><a href="Middlewares/ST/STM32_Safety_STL/Release_Notes.html">release note</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="documents">Documents</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32G0 Series UL/CSA/IEC 60730-1/60335-1 Class B self-test library user guide</td>
+<td style="text-align: left;">To request to ST to get the most updated version</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V9.20.1 + ST-Link</li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.36 + ST-Link</li>
+<li>STM32CubeIDE V1.9.0</li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<ul>
+<li>STM32G071RB Nucleo kit RevB (MB1360 B-01))</li>
+</ul>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<ul>
+<li>Not applicable</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on <strong>STM32</strong>, visit: <a href="https://www.st.com/en/microcontrollers-microprocessors.html">www.st.com/STM32</a></p>
+This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.
+</footer>
+</body>
+</html>

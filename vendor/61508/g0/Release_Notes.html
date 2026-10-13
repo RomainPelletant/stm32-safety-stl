@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Release Notes for Safety Self Test Library (STL)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-4">
+<center>
+<h1 id="release-notes-for-safety-self-test-library-stl"><small>Release Notes for</small> <mark>Safety Self Test Library (STL)</mark></h1>
+<p>Copyright © 2019 STMicroelectronics<br />
+</p>
+<a href="https://www.st.com" class="logo"><img src="./_htmresc/st_logo_2020.png" alt="ST logo" /></a>
+</center>
+<h1 id="purpose">Purpose</h1>
+<p>The STL is the main component of the X-CUBE-STL-G0 <strong>Self-Test Library (STL)</strong> Expansion package for STM32Cube.</p>
+<p>STL is an application-independent software test library released by ST to implement a relevant subset of safety mechanisms required by the safety concepts applicable to microcontrollers of the STM32G0 Series. The STL is HAL/LL independent, and dedicated to the STM32G0 Series. The STL is compilation tool chain-agnostic, so it can be compiled by any standard C-compiler.</p>
+<p>STL is an autonomous software, which executes on application demand selected tests to detect hardware issues and reports the outcomes to the application.</p>
+<p>STL is delivered partly in object code (for the library itself) and partly in source code for the user interfaces definition and user parameters settings.</p>
+<p><strong>Architecture Overview</strong></p>
+<p>The STL tests the Arm® Cortex® M0+ CPU core, the Flash memory and the RAM.</p>
+<p>As shown in Figure 1. STL architecture, a system architecture with an end-user application integrating the STL is composed of:</p>
+<ul>
+<li><p>User application (in light blue)</p></li>
+<li><p>User parameters (in light blue)</p></li>
+<li><p>STL scheduler (in light yellow): directly accessible by the User application via User APIs (not going through HAL/LL)</p></li>
+<li><p>STL internal test modules (in light yellow): called by the STL scheduler (not seen from the User application).</p></li>
+</ul>
+<p>The figure below shows the STL architecture:</p>
+<center>
+<img src="_htmresc/STL_Architecture.PNG" alt="STL Architecture" /><br />
+
+</center>
+<p>Here is the list of references to user documents:</p>
+<ul>
+<li><a href="../../../STL_G0_SM_cx626237_5.0.pdf">UM2540</a> : STM32G0 Series self-test library safety manual</li>
+<li><a href="../../../STL_G0_UG_cx619359_4.0.pdf">UM2544</a> : STM32G0 Series self-test library user guide</li>
+<li>AN5659: Safety self-test library Arm® Cortex®-M integration tips</li>
+</ul>
+</div>
+<div class="col-sm-12 col-lg-8">
+<h1 id="update-history">Update History</h1>
+<div class="collapse">
+<input type="checkbox" id="collapse-section2" checked aria-hidden="true"> <label for="collapse-section2" aria-hidden="true"><strong>V2.0.0 / 31-January-2023</strong></label>
+<div>
+<h2 id="main-changes">Main Changes</h2>
+<p><strong>Maintenance release</strong></p>
+<p>This STL maintenance release contains the following changes:</p>
+<ul>
+<li><p>STL library: compiled with EWARMFS 9.20.3 (wchar_t is set to 32 bits)</p></li>
+<li><p>Scheduler: APIs updated to manage new TM7L (user APIs and user data structure)</p></li>
+<li><p>Scheduler: The CRC (HW or SW) is no more internally used by the Scheduler (except during STL_SCH_Init function where HW CRC is still accessed)</p></li>
+<li><p>CPU TM7L: new CPU TM7L version is the CPU TM7 from previous releases, that tests only the current stack pointer</p></li>
+<li><p>CPU TM7: new CPU TM7 version is testing both MSP and PSP. This version is adding a constraint on application software by interrupt masking interrupts</p></li>
+<li><p>CPU TM8: reworked to remove the interrupts masking constraint</p></li>
+<li><p>Source files: update disclaimer to add reference to the new license agreement</p></li>
+</ul>
+<p>Please refer to User Guide and Safety Manual for more detailed explanations on the feature added by this maintenance release.</p>
+<h2 id="integrity">Integrity</h2>
+<ul>
+<li><p>SHA256 function (specified in FIPS-180 publications) is used to check STL delivery integrity</p></li>
+<li><p>SHA256 expected values:</p></li>
+</ul>
+<p>The STL library file, STL_Lib.a, could have a different version than the other files delivered in source, that have all the same version.</p>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><strong>Source files version: v2.0.0</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File name</th>
+<th style="text-align: left;">SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Inc/stl_stm32_hw_config.h</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">ba49b74d4c150472e25ef461affd359d67f01f5f92ccee23916c247012653e05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>*./Inc/stl_user_api.h</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">5e87958139e7e3e04baca627172c2f653edb89cb0314341c14866d12159484c0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Inc/stl_util.h</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">4b574a288e9a45533f9dd6a671e185ea1c31f17bcebf59787071e6b4399cd0b8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>*./Src/stl_user_param_template.c</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">806f11f135b21938d3d55d2fda4740e353f07b9b8773152ce0f6a4aa2f3c6b56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Src/stl_util.c</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">0a1ff469a9cb005a3a6fec38d67da9f5ede19090562420eebe306a35d44fbec4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STL library file version: v2.0.0</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File name</th>
+<th style="text-align: left;">SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Lib/STL_Lib.a</em> <span class="icon-st-update"></span></td>
+<td style="text-align: left;">215858fbad7beebfc218c437fb79f3fa7eb2eeea5a1e4e9465215df8cf7a50dd</td>
+</tr>
+</tbody>
+</table>
+<h2 id="documents">Documents</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">md5sum</th>
+<th style="text-align: left;">Document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STL_G0_SM_cx626237_5.0.pdf <span class="icon-st-update"></span></td>
+<td style="text-align: left;">de98f714f5709096f3dfb82f9a3cef54</td>
+<td style="text-align: left;"><a href="../../../STL_G0_SM_cx626237_5.0.pdf">document</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STL_G0_UG_cx619359_4.0.pdf <span class="icon-st-update"></span></td>
+<td style="text-align: left;">8ed8d138f768d37ee1ea567eec96cbf1</td>
+<td style="text-align: left;"><a href="../../../STL_G0_UG_cx619359_4.0.pdf">document</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STL_STM32_AN_Integration_tips_cx723078_1.0.pdf <span class="icon-st-add"></span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">To request to ST to get the most updated version</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<ul>
+<li>STL Library fully compatible with previous version</li>
+</ul>
+<h2 id="development-toolchains-and-compilers-for-the-library">Development Toolchains and Compilers for the library</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARMFS) toolchain V9.20.3 (certified version) - more information in User Guide</li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section0" aria-hidden="true"> <label for="collapse-section0" aria-hidden="true"><strong>V1.0.0 / 1-July-2019</strong></label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
+<p><strong>First official release</strong></p>
+<p>Note that this release note shape is updated, but the content is exactly the same.</p>
+<h2 id="integrity-1">Integrity</h2>
+<ul>
+<li><p>SHA256 function (specified in FIPS-180 publications) is used to check STL delivery integrity</p></li>
+<li><p>SHA256 expected values:</p></li>
+</ul>
+<p>The STL library file, STL_Lib.a has a version that could be different from the one of the other files delivered in source, that have all the same version.</p>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><strong>Source files version : v1.0.0</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File name</th>
+<th style="text-align: left;">SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Inc/stl_stm32_hw_config.h</em></td>
+<td style="text-align: left;">097c920f60804844f5098a1b03fb18b63046713646d22cf1c43cdc4882943e99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>*./Inc/stl_user_api.h</em></td>
+<td style="text-align: left;">9c6f250153a4bc95b1b235eaf3151223036b026b363380f20b474d57a255f1af</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Inc/stl_util.h</em></td>
+<td style="text-align: left;">dbc1b7d9e3ba6f09d7439e813245c3ad098160428f20fdc97e463e083dc959e6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>*./Src/stl_user_param_template.c</em></td>
+<td style="text-align: left;">2210d3b1711eb1271a7a061fa78a85815088e9f07759cef9f7650f4f4e24304f</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Src/stl_util.c</em></td>
+<td style="text-align: left;">32635ab75e940efba6dddaa3da0e99b64dd684b006887da49f783e61898af06c</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STL library file version : v1.0.0</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File name</th>
+<th style="text-align: left;">SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>*./Lib/STL_Lib.a</em></td>
+<td style="text-align: left;">718440fb566fbaeca6cc0f7202008f8c3d415f0c63605b916edc900f0d9f3e7a</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations-1">Known Limitations</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="backward-compatibility-1">Backward Compatibility</h2>
+<ul>
+<li>STL Library fully compatible with previous version</li>
+</ul>
+<h2 id="development-toolchains-and-compilers-for-the-library-1">Development Toolchains and Compilers for the library</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.6 (certified version) - more information in User Guide</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<footer class="sticky">
+<p>For complete documentation on <strong>STM32G0xx</strong>, visit: <a href="http://www.st.com/stm32g0">www.st.com/stm32g0</a> visit: <a href="https://www.st.com/en/microcontrollers-microprocessors.html">www.st.com/STM32</a></p>
+This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.
+</footer>
+</body>
+</html>
